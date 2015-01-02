@@ -13,6 +13,9 @@ ZBX_QUERY="$1"
 # MySQL details
 MYSQL_ACCESS="/usr/share/zabbix/conf/my.cnf"
 MYSQL_BIN="/usr/bin/mysql"
+if [ ! -f "$MYSQL_BIN"]; then
+  MYSQL_BIN="/usr/local/mysql/bin/mysql"
+fi
 
 MYSQL="$MYSQL_BIN --defaults-extra-file=$MYSQL_ACCESS --skip-column"
 
